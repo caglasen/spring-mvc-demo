@@ -6,6 +6,7 @@ import java.lang.annotation.Target;
 import java.lang.annotation.RetentionPolicy;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 
 @Constraint(validatedBy = CourseCodeConstraintValidator.class)
 @Target( {ElementType.METHOD, ElementType.FIELD}) //Means we can apply this annotation on methods and fields
@@ -21,8 +22,9 @@ public @interface CourseCode {
 	
 	
 	// define default groups
-	public Classs<?>[] groups() default
+	public Class<?>[] groups() default {};
 	
 	
 	// define default payloads
+	public Class<? extends Payload>[] payload() default {};
 }
